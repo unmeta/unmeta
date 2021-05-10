@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "module": "CommonJS",
+    "target": "ES2017",
+    "lib": ["DOM"],
+    "jsx": "react",
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "baseUrl": "../..",
+    "paths": {
+      "api/*": ["api/*"]
+    }
+  },
+  "ts-node": {
+    "transpileOnly": true
+  }
+}

@@ -1,0 +1,21 @@
+const traverse= require("./traverse")
+const unflat = require("./utils")
+module.exports = function parse(ast, rules, options={}){
+  const data = traverse({$:ast},rules, options.helpers)
+  if(options && options.location){
+    return data
+  }
+  const parsedData = Object.values(data).reduce((newData, d)=>{
+    for(const item in d){
+      const value = d[item]._value?d[item]._value:[d[item]]
+      if(newData[item]){
+        newData[item].concat(value)
+      }else{
+        newData[item] = value
+      }
+    }
+    return newData
+  },{})
+
+  return parsedData
+}
